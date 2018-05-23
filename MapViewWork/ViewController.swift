@@ -7,35 +7,89 @@
 //
 
 import UIKit
-import MapKit
+import GoogleMaps
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class VacationDestination: NSObject {
+    
+    let name: String
+    let location:  CLLocationCoordinate2D
+    let zoom: Float
+    
+    init(name: String, location: CLLocationCoordinate2D, zoom: Float) {
+        self.name = name
+        self.location = location
+        self.zoom = zoom
+    }
+}
+
+class ViewController: UIViewController {
     
     var window: UIWindow?
-    var mapView = MKMapView()
+    var mapView: GMSMapView?
     
-    var locationManager = CLLocationManager()
-
+    var currentDestination: VacationDestination?
+    
+    let destinations = [VacationDestination(name: "Fiet", location: CLLocationCoordinate2DMake(2.446662, -76.598466), zoom: 15), VacationDestination(name: "Cementerio", location: CLLocationCoordinate2DMake(2.448356, -76.620785), zoom: 16)]
+    
+    let buttonTest: UIButton = {
+        let yPos = UIScreen.main.bounds.height - 50
+        let btn = UIButton()
+        btn.setTitle("Test", for: .normal)
+        btn.frame = CGRect(x: 0, y: yPos, width: 100, height: 20)
+        btn.setTitleColor(.white, for: .normal)
+        btn.backgroundColor = .blue
+        btn.addTarget(self, action: #selector(handleBtn), for: .touchUpInside)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    @objc func handleBtn() {
+        print(123)
+        if currentDestination == nil {
+            currentDestination = destinations.first
+            
+            //mapView?.animateToCameraPosition()
+            
+            mapView?.camera = GMSCameraPosition.camera(withTarget: currentDestination!.location, zoom: currentDestination!.zoom)
+            
+            let marker = GMSMarker(position: currentDestination!.location)
+            marker.title = currentDestination?.name
+            marker.map = mapView
+        }else {
+            
+            if let index = destinations.index(of: currentDestination!) {
+                currentDestination = destinations[index + 1]
+                
+                mapView?.camera = GMSCameraPosition.camera(withTarget: currentDestination!.location, zoom: currentDestination!.zoom)
+                
+                let marker = GMSMarker(position: currentDestination!.location)
+                marker.title = currentDestination?.name
+                marker.map = mapView
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        mapView.delegate = self
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        GMSServices.provideAPIKey("AIzaSyD0L_riQOEn9ngRmYiE8ko6HZ24AbzSshk")
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.view.backgroundColor = .red
         
+        let camera = GMSCameraPosition.camera(withTarget: destinations[0].location, zoom: destinations[0].zoom)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        //mapView?.isMyLocationEnabled = true
+        mapView?.frame = CGRect(x: 0, y: 20, width: (self.window?.frame.width)!, height: (self.window?.frame.height)! * 3 / 4)
         
-        let loc = CLLocationCoordinate2DMake(2.4430307,-76.7184948)
-        let span = MKCoordinateSpanMake(0.08, 0.08)
-        let reg = MKCoordinateRegionMake(loc, span)
-        self.mapView.setRegion(reg, animated: true)
+        let currentLocation = CLLocationCoordinate2DMake(2.448632, -76.598720)
+        let markerFiet = GMSMarker(position: currentLocation)
+        markerFiet.title = "FIET"
+        markerFiet.map = mapView
         
-        mapView.frame = CGRect(x: 0, y: 20, width: (self.window?.frame.width)!, height: (self.window?.frame.height)! / 2)
         
-        //self.mapView = MKMapView(frame: CGRect(x: 0, y: 20, width: (self.window?.frame.width)!, height: 300))
-        self.view.addSubview(self.mapView)
+        
+        self.view.addSubview(mapView!)
+        self.view.addSubview(buttonTest)
     }
 }
 
