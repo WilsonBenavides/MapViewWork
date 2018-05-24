@@ -14,24 +14,12 @@ class ViewController: UIViewController {
     var window: UIWindow?
     var mapView = GMSMapView()
     
-    let buttonTest: UIButton = {
-        let yPos = UIScreen.main.bounds.height - 50
-        let btn = UIButton()
-        btn.setTitle("Test", for: .normal)
-        btn.frame = CGRect(x: 0, y: yPos, width: 100, height: 20)
-        btn.setTitleColor(.white, for: .normal)
-        btn.backgroundColor = .blue
-        btn.addTarget(self, action: #selector(handleBtn), for: .touchUpInside)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
-    }()
-    
     let descriptionTextView: UITextView = {
         let textView = UITextView()
         
-        let attributedText = NSMutableAttributedString(string: "BusesApp - Ruta No 01", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 20)])
+        let attributedText = NSMutableAttributedString(string: "BusesApp - Ruta No 01", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 25)])
         
-        attributedText.append(NSAttributedString(string: "\n\nasdf asdf asdfasdfasdfasdf asdfasd  asdfasdfasdf  asdfasdf asdf asdf asdf asdfasdfasdfasdfa asdf asdf asdf asdfasdfasdfasdfasdfa asdfasdfasdfasdf  asdfasdfasdfasdf asdf asdfasdfasdf asdf asdf asdfasdfasdf asdf asdfasdf", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.gray]))
+        attributedText.append(NSAttributedString(string: "\n\nasdf asdf asdfasdfasdfasdf asdfasd  asdfasdfasdf  asdfasdf asdf asdf asdf asdfasdfasdfasdfa asdf asdf asdf asdfasdfasdfasdfasdfa", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20), NSAttributedStringKey.foregroundColor: UIColor.gray]))
         
         textView.attributedText = attributedText
         
@@ -44,16 +32,38 @@ class ViewController: UIViewController {
         return textView
     }()
     
-    @objc func handleBtn() {
-        print(123)
-    }
+    private let previousButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("PREV", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        return button
+    }()
+    
+    let nextButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("NEXT", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("console message test...")
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.view.backgroundColor = .white
         
+        setupMapView()
+        
+        view.addSubview(descriptionTextView)
+        
+        setupLayout()
+        setupBottomConstrols()
+    }
+    
+    private func setupMapView() {
         let camera = GMSCameraPosition.camera(withLatitude: 2.441427, longitude: -76.606610, zoom: 13)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         
@@ -84,15 +94,37 @@ class ViewController: UIViewController {
         polyline.strokeWidth = 10.0
         polyline.geodesic = true
         polyline.map = mapView
+    }
+    
+    fileprivate func setupBottomConstrols() {
+        //view.addSubview(previousButton)
+        previousButton.backgroundColor = .red
+        //previousButton.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
         
-        //mapView.frame = CGRect(x: 0, y: 20, width: view.frame.width, height: (self.window?.frame.height)! * 3 / 4)
-        //mapView?.frame = CGRect.zero
+        let greenView = UIView()
+        greenView.backgroundColor = .green
         
-        //view.addSubview(mapView)
-        view.addSubview(descriptionTextView)
-        //self.view.addSubview(buttonTest)
+        let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, greenView, nextButton])
+        bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
+        bottomControlsStackView.distribution = .fillEqually
+        //bottomControlsStackView.axis = .vertical
+        view.addSubview(bottomControlsStackView)
         
-        setupLayout()
+        if #available(iOS 11.0, *) {
+            NSLayoutConstraint.activate([
+                bottomControlsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+                bottomControlsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
+                ])
+        } else {
+            NSLayoutConstraint.activate([
+                bottomControlsStackView.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor),
+                bottomControlsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                bottomControlsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
+                ])
+        }
     }
     
     private func setupLayout() {
@@ -104,7 +136,6 @@ class ViewController: UIViewController {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         
         topImageContainerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        
         topImageContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         topImageContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
@@ -124,8 +155,8 @@ class ViewController: UIViewController {
         mapView.heightAnchor.constraint(equalTo: topImageContainerView.heightAnchor).isActive = true
         
         descriptionTextView.topAnchor.constraint(equalTo: topImageContainerView.bottomAnchor, constant: 10).isActive = true
-        descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 24).isActive = true
+        descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
         descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
     }
 }
