@@ -10,6 +10,9 @@
 		109333EA20B70DCB00EA073C /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109333E920B70DCB00EA073C /* SwipingController.swift */; };
 		109333EC20B710AF00EA073C /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109333EB20B710AF00EA073C /* PageCell.swift */; };
 		109333EE20B721C600EA073C /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109333ED20B721C600EA073C /* Page.swift */; };
+		109333F120B7317700EA073C /* SwipingController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109333F020B7317700EA073C /* SwipingController+UICollectionView.swift */; };
+		109333F320B731B600EA073C /* SwipingController+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109333F220B731B600EA073C /* SwipingController+UIColor.swift */; };
+		109333F520B731F100EA073C /* SwipingController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109333F420B731F100EA073C /* SwipingController+extension.swift */; };
 		109DF1E520B4CE02005E1867 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109DF1E420B4CE02005E1867 /* AppDelegate.swift */; };
 		109DF1E720B4CE02005E1867 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109DF1E620B4CE02005E1867 /* ViewController.swift */; };
 		109DF1EA20B4CE02005E1867 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109DF1E820B4CE02005E1867 /* Main.storyboard */; };
@@ -23,6 +26,9 @@
 		109333E920B70DCB00EA073C /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		109333EB20B710AF00EA073C /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		109333ED20B721C600EA073C /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		109333F020B7317700EA073C /* SwipingController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipingController+UICollectionView.swift"; sourceTree = "<group>"; };
+		109333F220B731B600EA073C /* SwipingController+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipingController+UIColor.swift"; sourceTree = "<group>"; };
+		109333F420B731F100EA073C /* SwipingController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipingController+extension.swift"; sourceTree = "<group>"; };
 		109DF1E120B4CE02005E1867 /* MapViewWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapViewWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		109DF1E420B4CE02005E1867 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		109DF1E620B4CE02005E1867 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +86,9 @@
 				109DF1F020B4CE0A005E1867 /* LaunchScreen.storyboard */,
 				109DF1F320B4CE0A005E1867 /* Info.plist */,
 				109DF1EB20B4CE02005E1867 /* MapViewWork.xcdatamodeld */,
+				109333F020B7317700EA073C /* SwipingController+UICollectionView.swift */,
+				109333F220B731B600EA073C /* SwipingController+UIColor.swift */,
+				109333F420B731F100EA073C /* SwipingController+extension.swift */,
 			);
 			path = MapViewWork;
 			sourceTree = "<group>";
@@ -218,10 +227,13 @@
 			files = (
 				109DF1E720B4CE02005E1867 /* ViewController.swift in Sources */,
 				109333EC20B710AF00EA073C /* PageCell.swift in Sources */,
+				109333F520B731F100EA073C /* SwipingController+extension.swift in Sources */,
 				109333EE20B721C600EA073C /* Page.swift in Sources */,
+				109333F120B7317700EA073C /* SwipingController+UICollectionView.swift in Sources */,
 				109DF1ED20B4CE02005E1867 /* MapViewWork.xcdatamodeld in Sources */,
 				109DF1E520B4CE02005E1867 /* AppDelegate.swift in Sources */,
 				109333EA20B70DCB00EA073C /* SwipingController.swift in Sources */,
+				109333F320B731B600EA073C /* SwipingController+UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

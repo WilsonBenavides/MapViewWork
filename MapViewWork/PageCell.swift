@@ -23,6 +23,15 @@ class PageCell: UICollectionViewCell {
             
             descriptionTextView.attributedText = attributedText
             descriptionTextView.textAlignment = .center
+            
+            //let position = CLLocationCoordinate2D(latitude: 2.438383, longitude: -76.624452)
+            mapView.clear()
+            let marker = GMSMarker(position: unwrappedPage.location)
+            
+            print(unwrappedPage.name)
+            marker.title = unwrappedPage.name
+            marker.icon = GMSMarker.markerImage(with: unwrappedPage.color)
+            marker.map = mapView
         }
     }
     
@@ -30,14 +39,12 @@ class PageCell: UICollectionViewCell {
         let textView = UITextView()
         
         var prop = (UIScreen.main.bounds.height / 200.0) + 1
-        print("height: " + "\(UIScreen.main.bounds.height)" + ", width: " + "\(UIScreen.main.bounds.width)" + " , related font to 18 and 13: " + "\(prop * 4)" + ", \(prop * 3)")
         
         let attributedText = NSMutableAttributedString(string: "Join us today in our fun and games!", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: prop * 4), NSAttributedStringKey.foregroundColor: UIColor.black])
         
        attributedText.append(NSAttributedString(string: "\n\n\nAre you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon.", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: prop * 3), NSAttributedStringKey.foregroundColor: UIColor.gray]))
         
         textView.attributedText = attributedText
-        print(attributedText)
         
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.textAlignment = .center
@@ -48,7 +55,7 @@ class PageCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .yellow
+        //backgroundColor = .yellow
         setupMapView()
         setupLayout()
         
@@ -84,29 +91,29 @@ class PageCell: UICollectionViewCell {
         
         let path = GMSMutablePath()
         path.add(CLLocationCoordinate2D(latitude: 2.444492, longitude: -76.599074))
-        var position = CLLocationCoordinate2D(latitude: 2.444492, longitude: -76.599074)
-        let marker = GMSMarker(position: position)
-        marker.title = "Title 1"
-        marker.icon = GMSMarker.markerImage(with: .blue)
-        marker.map = mapView
+        //var position = CLLocationCoordinate2D(latitude: 2.444492, longitude: -76.599074)
+        //let marker = GMSMarker(position: position)
+        //marker.title = "Title 1"
+        //marker.icon = GMSMarker.markerImage(with: .blue)
+        //marker.map = mapView
         
         path.add(CLLocationCoordinate2D(latitude: 2.441427, longitude: -76.606610))
-        position = CLLocationCoordinate2D(latitude: 2.441427, longitude: -76.606610)
-        let marker2 = GMSMarker(position: position)
-        marker2.title = "Title 2"
-        marker2.icon = GMSMarker.markerImage(with: .green)
-        marker2.map = mapView
+        //position = CLLocationCoordinate2D(latitude: 2.441427, longitude: -76.606610)
+        //let marker2 = GMSMarker(position: position)
+        //marker2.title = "Title 2"
+        //marker2.icon = GMSMarker.markerImage(with: .green)
+        //marker2.map = mapView
         
         path.add(CLLocationCoordinate2D(latitude: 2.438383, longitude: -76.624452))
-        position = CLLocationCoordinate2D(latitude: 2.438383, longitude: -76.624452)
-        let marker3 = GMSMarker(position: position)
-        marker3.title = "Title 3"
-        marker3.icon = GMSMarker.markerImage(with: .yellow)
-        marker3.map = mapView
+        //position = CLLocationCoordinate2D(latitude: 2.438383, longitude: -76.624452)
+        //let marker3 = GMSMarker(position: position)
+        //marker3.title = "Title 3"
+        //marker3.icon = GMSMarker.markerImage(with: .yellow)
+        //marker3.map = mapView
         
         let polyline = GMSPolyline(path: path)
         polyline.strokeColor = .black
-        polyline.strokeWidth = 10.0
+        polyline.strokeWidth = 15.0
         polyline.geodesic = true
         polyline.map = mapView
     }

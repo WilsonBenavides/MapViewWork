@@ -6,11 +6,14 @@
 //  Copyright © 2018 willix. All rights reserved.
 //
 
-import Foundation
+import GoogleMaps
+import UIKit
 
 struct Page {
     
-    let imageName: String
+    let name: String
     let headerText: String
     let bodyText: String
+    let location:  CLLocationCoordinate2D
+    let color:  UIColor
 }
