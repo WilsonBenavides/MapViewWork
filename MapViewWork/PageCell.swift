@@ -13,17 +13,31 @@ class PageCell: UICollectionViewCell {
     
     var mapView = GMSMapView()
     
-    let descriptionTextView: UITextView = {
+    var page: Page? {
+        didSet {
+            guard let unwrappedPage = page else { return }
+            
+            let attributedText = NSMutableAttributedString(string: unwrappedPage.headerText, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 18)])
+            
+            attributedText.append(NSAttributedString(string: "\n\n\n\(unwrappedPage.bodyText)", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18), NSAttributedStringKey.foregroundColor: UIColor.gray]))
+            
+            descriptionTextView.attributedText = attributedText
+            descriptionTextView.textAlignment = .center
+        }
+    }
+    
+    private let descriptionTextView: UITextView = {
         let textView = UITextView()
         
         var prop = (UIScreen.main.bounds.height / 200.0) + 1
         print("height: " + "\(UIScreen.main.bounds.height)" + ", width: " + "\(UIScreen.main.bounds.width)" + " , related font to 18 and 13: " + "\(prop * 4)" + ", \(prop * 3)")
         
-        let attributedText = NSMutableAttributedString(string: "Join us today in our fun and games!", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: prop * 4)])
+        let attributedText = NSMutableAttributedString(string: "Join us today in our fun and games!", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: prop * 4), NSAttributedStringKey.foregroundColor: UIColor.black])
         
-        attributedText.append(NSAttributedString(string: "\n\n\nAre you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon.", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: prop * 3), NSAttributedStringKey.foregroundColor: UIColor.gray]))
+       attributedText.append(NSAttributedString(string: "\n\n\nAre you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon.", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: prop * 3), NSAttributedStringKey.foregroundColor: UIColor.gray]))
         
         textView.attributedText = attributedText
+        print(attributedText)
         
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.textAlignment = .center
