@@ -12,9 +12,9 @@ import GoogleMaps
 class SwipingController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let pages = [
-        Page(name: "El Morro", headerText: "Join use today in out fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longet! We hopw to see you in our stores soon.", location: CLLocationCoordinate2D(latitude: 2.438383, longitude: -76.624452), color: .mainPink),
-        Page(name: "Parque Caldas", headerText: "Subscribe and get coupons o nour daily events", bodyText: "Get notified of the savings inmmediately when we announce them on our website. Make sure to also give us any feedback you have.", location: CLLocationCoordinate2D(latitude: 2.441427, longitude: -76.606610), color: .mainOrange),
-        Page(name: "Cementerio Central", headerText: "VIP members special services", bodyText: "text...", location: CLLocationCoordinate2D(latitude: 2.444492, longitude: -76.599074), color: .mainBlue)
+        Page(name: "Cementerio Central", headerText: "Continental Bus", bodyText: "Are you ready for loads and loads of fun? Don't wait any longet! We hopw to see you in our stores soon.", location: CLLocationCoordinate2D(latitude: 2.438383, longitude: -76.624452), color: .mainPink, zoom: 13),
+        Page(name: "Parque Caldas", headerText: "Continental Bus", bodyText: "Get notified of the savings inmmediately when we announce them on our website. Make sure to also give us any feedback you have.", location: CLLocationCoordinate2D(latitude: 2.441427, longitude: -76.606610), color: .mainOrange, zoom: 15),
+        Page(name: "El Morro", headerText: "Continental Bus", bodyText: "text...", location: CLLocationCoordinate2D(latitude: 2.444492, longitude: -76.599074), color: .mainBlue, zoom: 17)
     ]
     
     private let previousButton: UIButton = {

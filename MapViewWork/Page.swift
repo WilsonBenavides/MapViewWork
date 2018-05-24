@@ -16,4 +16,5 @@ struct Page {
     let bodyText: String
     let location:  CLLocationCoordinate2D
     let color:  UIColor
+    let zoom: Float
 }

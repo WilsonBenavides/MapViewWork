@@ -13,25 +13,32 @@ class PageCell: UICollectionViewCell {
     
     var mapView = GMSMapView()
     
+    var currentDestination: Page?
+    
     var page: Page? {
         didSet {
             guard let unwrappedPage = page else { return }
             
-            let attributedText = NSMutableAttributedString(string: unwrappedPage.headerText, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 18)])
+            currentDestination = unwrappedPage
+            
+            let attributedText = NSMutableAttributedString(string: unwrappedPage.headerText + " - \(unwrappedPage.name)", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 18)])
             
             attributedText.append(NSAttributedString(string: "\n\n\n\(unwrappedPage.bodyText)", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18), NSAttributedStringKey.foregroundColor: UIColor.gray]))
             
             descriptionTextView.attributedText = attributedText
             descriptionTextView.textAlignment = .center
             
-            //let position = CLLocationCoordinate2D(latitude: 2.438383, longitude: -76.624452)
             mapView.clear()
-            let marker = GMSMarker(position: unwrappedPage.location)
+            //let camera = GMSCameraPosition.camera(withLatitude: unwrappedPage.location.latitude, longitude: unwrappedPage.location.longitude, zoom: 13)
+            //mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
             
+            //let marker = GMSMarker(position: unwrappedPage.location)
             print(unwrappedPage.name)
-            marker.title = unwrappedPage.name
-            marker.icon = GMSMarker.markerImage(with: unwrappedPage.color)
-            marker.map = mapView
+            //marker.title = unwrappedPage.name
+            //marker.icon = GMSMarker.markerImage(with: unwrappedPage.color)
+            //marker.map = mapView
+            
+            setMapCamera()
         }
     }
     
@@ -116,6 +123,21 @@ class PageCell: UICollectionViewCell {
         polyline.strokeWidth = 15.0
         polyline.geodesic = true
         polyline.map = mapView
+    }
+    
+    private func setMapCamera() {
+        
+        CATransaction.begin()
+        CATransaction.setValue(2, forKey: kCATransactionAnimationDuration)
+        
+        mapView.animate(to: GMSCameraPosition.camera(withTarget: currentDestination!.location, zoom: currentDestination!.zoom))
+        
+        CATransaction.commit()
+        
+        let marker = GMSMarker(position: currentDestination!.location)
+        marker.title = currentDestination?.name
+        marker.icon = GMSMarker.markerImage(with: currentDestination!.color)
+        marker.map = mapView
     }
     
     required init?(coder aDecoder: NSCoder) {
