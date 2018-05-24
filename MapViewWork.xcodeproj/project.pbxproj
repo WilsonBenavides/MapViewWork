@@ -14,7 +14,6 @@
 		109DF1EF20B4CE0A005E1867 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109DF1EE20B4CE0A005E1867 /* Assets.xcassets */; };
 		109DF1F220B4CE0A005E1867 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109DF1F020B4CE0A005E1867 /* LaunchScreen.storyboard */; };
 		109DF1FA20B4F457005E1867 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 109DF1F920B4F456005E1867 /* Podfile */; };
-		4077675969F050BCCF932DDC /* libPods-MapViewWork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A58D6E756BE98F674FE8DA63 /* libPods-MapViewWork.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4077675969F050BCCF932DDC /* libPods-MapViewWork.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +362,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.willix.MapViewWork;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -384,7 +382,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.willix.MapViewWork;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
