@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class BaseCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,6 +25,8 @@ class BaseCell: UICollectionViewCell {
 }
 
 class VideoCell: BaseCell {
+    
+    var routeManager:BooksManager = BooksManager()
     
     var video: Video? {
         didSet {
@@ -115,6 +118,8 @@ class VideoCell: BaseCell {
     var titleLabelHeightConstraint: NSLayoutConstraint?
     
     override func setupViews() {
+        print("setupViews..\(routeManager.bookCount), \(routeManager.getBook(at: 0).name)")
+        
         addSubview(thumbnailImageView)
         addSubview(separatorView)
         addSubview(userProfileImageView)
