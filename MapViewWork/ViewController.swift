@@ -37,18 +37,19 @@ class ViewController: UIViewController {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.view.backgroundColor = .white
         
-        let camera = GMSCameraPosition.camera(withLatitude: 37.40, longitude: -122.1, zoom: 11)
+        let camera = GMSCameraPosition.camera(withLatitude: 2.441427, longitude: -76.606610, zoom: 14)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         
         let path = GMSMutablePath()
-        path.add(CLLocationCoordinate2D(latitude: 37.36, longitude: -122.0))
-        path.add(CLLocationCoordinate2D(latitude: 37.45, longitude: -122.0))
-        path.add(CLLocationCoordinate2D(latitude: 37.45, longitude: -122.2))
-        path.add(CLLocationCoordinate2D(latitude: 37.36, longitude: -122.2))
-        path.add(CLLocationCoordinate2D(latitude: 37.36, longitude: -122.0))
+        path.add(CLLocationCoordinate2D(latitude: 2.444492, longitude: -76.599074))
+        path.add(CLLocationCoordinate2D(latitude: 2.441427, longitude: -76.606610))
+        path.add(CLLocationCoordinate2D(latitude: 2.438383, longitude: -76.624452))
         
-        let rectangle = GMSPolyline(path: path)
-        rectangle.map = mapView
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeColor = .black
+        polyline.strokeWidth = 10.0
+        polyline.geodesic = true
+        polyline.map = mapView
 
         mapView?.frame = CGRect(x: 0, y: 20, width: (self.window?.frame.width)!, height: (self.window?.frame.height)! * 3 / 4)
         
