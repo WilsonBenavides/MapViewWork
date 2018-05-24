@@ -13,6 +13,15 @@
 		109333F120B7317700EA073C /* SwipingController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109333F020B7317700EA073C /* SwipingController+UICollectionView.swift */; };
 		109333F320B731B600EA073C /* SwipingController+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109333F220B731B600EA073C /* SwipingController+UIColor.swift */; };
 		109333F520B731F100EA073C /* SwipingController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109333F420B731F100EA073C /* SwipingController+extension.swift */; };
+		1093341920B7591800EA073C /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093341820B7591800EA073C /* ApiService.swift */; };
+		1093341C20B7595D00EA073C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093341B20B7595D00EA073C /* HomeController.swift */; };
+		1093341E20B7599200EA073C /* SettingLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093341D20B7599200EA073C /* SettingLauncher.swift */; };
+		1093342120B759D500EA073C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093342020B759D500EA073C /* Extensions.swift */; };
+		1093342420B75A0700EA073C /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093342320B75A0700EA073C /* Video.swift */; };
+		1093342720B75A4900EA073C /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093342620B75A4900EA073C /* FeedCell.swift */; };
+		1093342920B75A6D00EA073C /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093342820B75A6D00EA073C /* MenuBar.swift */; };
+		1093342B20B75A9700EA073C /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093342A20B75A9700EA073C /* SettingCell.swift */; };
+		1093342D20B75ABB00EA073C /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093342C20B75ABB00EA073C /* VideoCell.swift */; };
 		109DF1E520B4CE02005E1867 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109DF1E420B4CE02005E1867 /* AppDelegate.swift */; };
 		109DF1E720B4CE02005E1867 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109DF1E620B4CE02005E1867 /* ViewController.swift */; };
 		109DF1EA20B4CE02005E1867 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109DF1E820B4CE02005E1867 /* Main.storyboard */; };
@@ -29,6 +38,15 @@
 		109333F020B7317700EA073C /* SwipingController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipingController+UICollectionView.swift"; sourceTree = "<group>"; };
 		109333F220B731B600EA073C /* SwipingController+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipingController+UIColor.swift"; sourceTree = "<group>"; };
 		109333F420B731F100EA073C /* SwipingController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipingController+extension.swift"; sourceTree = "<group>"; };
+		1093341820B7591800EA073C /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		1093341B20B7595D00EA073C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		1093341D20B7599200EA073C /* SettingLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingLauncher.swift; sourceTree = "<group>"; };
+		1093342020B759D500EA073C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1093342320B75A0700EA073C /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		1093342620B75A4900EA073C /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		1093342820B75A6D00EA073C /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		1093342A20B75A9700EA073C /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		1093342C20B75ABB00EA073C /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		109DF1E120B4CE02005E1867 /* MapViewWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapViewWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		109DF1E420B4CE02005E1867 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		109DF1E620B4CE02005E1867 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +72,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1093341720B758E500EA073C /* ApiService */ = {
+			isa = PBXGroup;
+			children = (
+				1093341820B7591800EA073C /* ApiService.swift */,
+			);
+			path = ApiService;
+			sourceTree = "<group>";
+		};
+		1093341A20B7594500EA073C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1093341B20B7595D00EA073C /* HomeController.swift */,
+				1093341D20B7599200EA073C /* SettingLauncher.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1093341F20B759C100EA073C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1093342020B759D500EA073C /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1093342220B759F500EA073C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1093342320B75A0700EA073C /* Video.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1093342520B75A3000EA073C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1093342620B75A4900EA073C /* FeedCell.swift */,
+				1093342820B75A6D00EA073C /* MenuBar.swift */,
+				1093342A20B75A9700EA073C /* SettingCell.swift */,
+				1093342C20B75ABB00EA073C /* VideoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		109DF1D820B4CE02005E1867 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +138,11 @@
 		109DF1E320B4CE02005E1867 /* MapViewWork */ = {
 			isa = PBXGroup;
 			children = (
+				1093342520B75A3000EA073C /* View */,
+				1093342220B759F500EA073C /* Model */,
+				1093341F20B759C100EA073C /* Helpers */,
+				1093341A20B7594500EA073C /* Controller */,
+				1093341720B758E500EA073C /* ApiService */,
 				109DF1E420B4CE02005E1867 /* AppDelegate.swift */,
 				109DF1E620B4CE02005E1867 /* ViewController.swift */,
 				109333E920B70DCB00EA073C /* SwipingController.swift */,
@@ -225,12 +292,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1093342B20B75A9700EA073C /* SettingCell.swift in Sources */,
 				109DF1E720B4CE02005E1867 /* ViewController.swift in Sources */,
 				109333EC20B710AF00EA073C /* PageCell.swift in Sources */,
+				1093342920B75A6D00EA073C /* MenuBar.swift in Sources */,
+				1093341C20B7595D00EA073C /* HomeController.swift in Sources */,
 				109333F520B731F100EA073C /* SwipingController+extension.swift in Sources */,
+				1093341E20B7599200EA073C /* SettingLauncher.swift in Sources */,
+				1093342420B75A0700EA073C /* Video.swift in Sources */,
 				109333EE20B721C600EA073C /* Page.swift in Sources */,
 				109333F120B7317700EA073C /* SwipingController+UICollectionView.swift in Sources */,
 				109DF1ED20B4CE02005E1867 /* MapViewWork.xcdatamodeld in Sources */,
+				1093342D20B75ABB00EA073C /* VideoCell.swift in Sources */,
+				1093342120B759D500EA073C /* Extensions.swift in Sources */,
+				1093341920B7591800EA073C /* ApiService.swift in Sources */,
+				1093342720B75A4900EA073C /* FeedCell.swift in Sources */,
 				109DF1E520B4CE02005E1867 /* AppDelegate.swift in Sources */,
 				109333EA20B70DCB00EA073C /* SwipingController.swift in Sources */,
 				109333F320B731B600EA073C /* SwipingController+UIColor.swift in Sources */,

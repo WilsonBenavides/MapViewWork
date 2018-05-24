@@ -20,14 +20,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey("AIzaSyD0L_riQOEn9ngRmYiE8ko6HZ24AbzSshk")
         
-        window = UIWindow()
+        window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let swipingController = SwipingController(collectionViewLayout: layout)
-        window?.rootViewController = swipingController
+        //layout.scrollDirection = .horizontal
+        window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
         
+        UINavigationBar.appearance().barTintColor = .navigationBarColor
+        /*get rid of black ba underneath navbar */
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        
+        application.statusBarStyle = .lightContent
+        
+        let statusBarBackgroundView = UIView()
+        statusBarBackgroundView.backgroundColor = .statusBarColor
+        
+        window?.addSubview(statusBarBackgroundView)
+        window?.addConstraintsWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
+        window?.addConstraintsWithFormat(format: "V:|[v0(20)]", views: statusBarBackgroundView)
         return true
     }
 
