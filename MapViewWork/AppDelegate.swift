@@ -16,14 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         GMSServices.provideAPIKey("AIzaSyD0L_riQOEn9ngRmYiE8ko6HZ24AbzSshk")
         
-        self.window = self.window ?? UIWindow()
-        //self.window!.backgroundColor = .red
-        self.window!.rootViewController = ViewController()
-        self.window!.makeKeyAndVisible()
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let swipingController = SwipingController(collectionViewLayout: layout)
+        window?.rootViewController = swipingController
         
         return true
     }

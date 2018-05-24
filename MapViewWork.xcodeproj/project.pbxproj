@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		109333EA20B70DCB00EA073C /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109333E920B70DCB00EA073C /* SwipingController.swift */; };
+		109333EC20B710AF00EA073C /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109333EB20B710AF00EA073C /* PageCell.swift */; };
 		109DF1E520B4CE02005E1867 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109DF1E420B4CE02005E1867 /* AppDelegate.swift */; };
 		109DF1E720B4CE02005E1867 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109DF1E620B4CE02005E1867 /* ViewController.swift */; };
 		109DF1EA20B4CE02005E1867 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109DF1E820B4CE02005E1867 /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		109333E920B70DCB00EA073C /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
+		109333EB20B710AF00EA073C /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		109DF1E120B4CE02005E1867 /* MapViewWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapViewWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		109DF1E420B4CE02005E1867 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		109DF1E620B4CE02005E1867 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 			children = (
 				109DF1E420B4CE02005E1867 /* AppDelegate.swift */,
 				109DF1E620B4CE02005E1867 /* ViewController.swift */,
+				109333E920B70DCB00EA073C /* SwipingController.swift */,
+				109333EB20B710AF00EA073C /* PageCell.swift */,
 				109DF1E820B4CE02005E1867 /* Main.storyboard */,
 				109DF1EE20B4CE0A005E1867 /* Assets.xcassets */,
 				109DF1F020B4CE0A005E1867 /* LaunchScreen.storyboard */,
@@ -208,8 +214,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				109DF1E720B4CE02005E1867 /* ViewController.swift in Sources */,
+				109333EC20B710AF00EA073C /* PageCell.swift in Sources */,
 				109DF1ED20B4CE02005E1867 /* MapViewWork.xcdatamodeld in Sources */,
 				109DF1E520B4CE02005E1867 /* AppDelegate.swift in Sources */,
+				109333EA20B70DCB00EA073C /* SwipingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
